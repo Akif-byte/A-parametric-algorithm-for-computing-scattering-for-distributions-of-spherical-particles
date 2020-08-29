@@ -16,7 +16,7 @@ m=q1*xi+q2;
 Int_eva=0;
 
 %Uniform Distribution
-pdf_ij=1;
+pdf_ij=1/((b-a)*(d-c));
 %Normal Distribution Parameters
 % mu_x=15; mu_m=1.5; sig_x=1.67; sig_m=0.1;
 
@@ -53,7 +53,7 @@ for i=1:length(m)
 %         pdf_ij=p*pdf1_ij+(1-p)*pdf2_ij;
         
 %       Multiplying by the weights of Gauss-Legendre quadrature wi
-        Int_eva=wi(i)*wi(j)*pdf_ij*((sin(pi*(x(j)-c(i,j))/(T1_mode_1(i,j))))^2 + (sin(pi*(x(j)-c(i,j))/(T2_mode_1(i,j))))^2 + (sin(pi*(x(j)-c(i,j))/(T1_mode_2(i,j))))^2 + (sin(pi*(x(j)-c(i,j))/(T2_mode_2(i,j))))^2 + (sin(pi*(x(j)-c(i,j))/(T1_mode_3(i,j))))^2 + (sin(pi*(x(j)-c(i,j))/(T2_mode_3(i,j))))^2) + Int_eva;
+        Int_eva=wi(i)*wi(j)*pdf_ij*(3*(sin(pi*(x(j)-c(i,j))/(T1_mode_1(i,j))))^2 + 3*(sin(pi*(x(j)-c(i,j))/(T2_mode_1(i,j))))^2 + 5*(sin(pi*(x(j)-c(i,j))/(T1_mode_2(i,j))))^2 + 5*(sin(pi*(x(j)-c(i,j))/(T2_mode_2(i,j))))^2 + 7*sin(pi*(x(j)-c(i,j))/(T1_mode_3(i,j)))^2 + 7*(sin(pi*(x(j)-c(i,j))/(T2_mode_3(i,j))))^2) + Int_eva;
         
     end
 end
