@@ -24,7 +24,7 @@ x=p1*x1_i+p2;
 m1=q1*m1_i+q2;
 
 %Uniform Distribution
-pdf_ij=1;
+pdf_ij=1/((b1-a1)*(d1-c1));
 
 %Normal Distribution Parameters
 % mu_x=80; mu_m1=1.3; sig_x=6.667; sig_m1=0.033;
@@ -108,7 +108,7 @@ for i=1:length(m1)
 %         pdf_ij=p*pdf1_ij+(1-p)*pdf2_ij;
         
         %Multiplying by the weights for the Gauss-Legendre quadrature
-        Int_eva=c1_i(i)*c3_i(j)*pdf_ij*(sin_sq_alpha_appx_mode_1 + sin_sq_beta_appx_mode_1 + sin_sq_alpha_appx_mode_2 + sin_sq_beta_appx_mode_2 + sin_sq_alpha_appx_mode_3 + sin_sq_beta_appx_mode_3) + Int_eva; 
+        Int_eva=c1_i(i)*c3_i(j)*pdf_ij*(3*sin_sq_alpha_appx_mode_1 + 3*sin_sq_beta_appx_mode_1 + 5*sin_sq_alpha_appx_mode_2 + 5*sin_sq_beta_appx_mode_2 + 7*sin_sq_alpha_appx_mode_3 + 7*sin_sq_beta_appx_mode_3) + Int_eva; 
     end
 end
 toc
