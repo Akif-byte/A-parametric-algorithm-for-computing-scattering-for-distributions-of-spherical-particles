@@ -63,7 +63,7 @@ for n=1:3
                     alpha=atand(tan_alpha_an);
                     beta=atand(tan_beta_bn);
                     %Uniform Distribution
-                    pdf_ij=1;
+                    pdf_ij=1/((m1(end)-m1(1))*(x(end)-x(1)));
                    
                     %Normal Distribution
                     %pdf_ij=1/(2*pi*sig_x*sig_m1)*exp(-0.5*((((x(j1)-mu_x)/sig_x)^2) + ((m1(k1)-mu_m1)/sig_m1)^2));
@@ -72,7 +72,7 @@ for n=1:3
 %                     pdf1_ij=1/(2*pi*sig1_x*sig1_m1)*exp(-0.5*((((x(j1)-mu1_x)/sig1_x)^2) + ((m1(k1)-mu1_m1)/sig1_m1)^2)); 
 %                     pdf2_ij=1/(2*pi*sig2_x*sig2_m1)*exp(-0.5*((((x(j1)-mu2_x)/sig2_x)^2) + ((m1(k1)-mu2_m1)/sig2_m1)^2));
 %                     pdf_ij(j1,k1)=p*pdf1_ij+(1-p)*pdf2_ij;
-                    Csca=pdf_ij(j1,k1)*(sind(alpha)^2+sind(beta)^2)+Csca;
+                    Csca=pdf_ij*(2*n+1)*(sind(alpha)^2+sind(beta)^2)+Csca;
                 end
             end
         end
