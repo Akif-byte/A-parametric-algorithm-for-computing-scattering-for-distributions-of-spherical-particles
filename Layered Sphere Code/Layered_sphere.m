@@ -58,10 +58,7 @@ for n=1:3
                     Bn=(bz1*az2-bz2*az1)/(bz1*cz2-yz2*az1);
                     an=(by*(az3-An*cz3)-m2(k2)*m2(k2)*ay*(bz3-An*yz3))/(hy*(az3-An*cz3)-m2(k2)*m2(k2)*ahy*(bz3-An*yz3));
                     bn=(by*(az3-Bn*cz3)-ay*(bz3-Bn*yz3))/(hy*(az3-Bn*cz3)-ahy*(bz3-Bn*yz3));
-                    tan_alpha_an=real(1i*an/(an-1));
-                    tan_beta_bn=real(1i*bn/(bn-1));
-                    alpha=atand(tan_alpha_an);
-                    beta=atand(tan_beta_bn);
+                  
                     %Uniform Distribution
                     pdf_ij=1/((m1(end)-m1(1))*(x(end)-x(1)));
                    
@@ -72,7 +69,7 @@ for n=1:3
 %                     pdf1_ij=1/(2*pi*sig1_x*sig1_m1)*exp(-0.5*((((x(j1)-mu1_x)/sig1_x)^2) + ((m1(k1)-mu1_m1)/sig1_m1)^2)); 
 %                     pdf2_ij=1/(2*pi*sig2_x*sig2_m1)*exp(-0.5*((((x(j1)-mu2_x)/sig2_x)^2) + ((m1(k1)-mu2_m1)/sig2_m1)^2));
 %                     pdf_ij(j1,k1)=p*pdf1_ij+(1-p)*pdf2_ij;
-                    Csca=pdf_ij*(2*n+1)*(sind(alpha)^2+sind(beta)^2)+Csca;
+                    Csca=pdf_ij*(2*n+1)*(abs(an)^2+abs(bn)^2)+Csca;
                 end
             end
         end
