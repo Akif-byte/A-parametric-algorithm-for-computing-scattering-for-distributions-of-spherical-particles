@@ -15,7 +15,7 @@ x=p1*xi+p2;
 m=q1*xi+q2; 
 
 %Probabibility Distribution: Uniform Distribution
-pdf_ij=1;
+pdf_ij=1/((b-a)*(d-c));
 
 %Normal Distribution Parameters
 % mu_x=15; mu_m=1.5; sig_x=1.67; sig_m=0.1;
@@ -62,7 +62,7 @@ for i=1:length(m)
 %           pdf_ij=p*pdf1_ij+(1-p)*pdf2_ij;
             
 %           Multiplying by the weights of Gauss-Legendre quadrature 
-            Int_eva=wi(i)*wi(j)*pdf_ij*((abs(an))^2 + (abs(bn))^2) + Int_eva;
+            Int_eva=wi(i)*wi(j)*pdf_ij*(2*n+1)*((abs(an))^2 + (abs(bn))^2) + Int_eva;
 
         end
     end
